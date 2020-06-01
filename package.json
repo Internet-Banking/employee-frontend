@@ -50,9 +50,6 @@
     "lint": "eslint src"
   },
   "pre-commit": ["lint"],
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
