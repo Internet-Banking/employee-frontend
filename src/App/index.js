@@ -3,6 +3,7 @@ import LoginPage from '../views/Login'
 import {useSelector, useDispatch} from 'react-redux'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import ErrorPage from '../views/ErrorPage'
+import UserPage from '../views/UserPage'
 import {initApp} from './actions'
 import {Layout} from '../components'
 
@@ -18,12 +19,12 @@ const App = () => {
       <Route
         exact
         path='/'
-        render={() => token ? <Redirect to='/employee'/> : <LoginPage />}
+        render={() => token ? <Redirect to='/user'/> : <LoginPage />}
       />
       <Layout>
         <Route
-          path='/employee'
-          render={() => token ? <ErrorPage/> : <Redirect to='/'/>} />
+          path='/user'
+          render={() => token ? <UserPage/> : <Redirect to='/'/>} />
       </Layout>
       <Route path='/404' component={ErrorPage} />
       <Redirect from='*' to='/404' />

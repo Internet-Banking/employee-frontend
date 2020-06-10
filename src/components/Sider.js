@@ -13,7 +13,7 @@ const Sider = () => {
       onCollapse={() => setIsCollapsed(!isCollapsed)}>
       <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline'>
         <Menu.Item key='1' icon={<TeamOutlined />}>
-          Manage Employees
+          Manage User
         </Menu.Item>
         <Menu.Item key='2' icon={<AreaChartOutlined />}>
           Transactions

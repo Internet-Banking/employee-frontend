@@ -69,7 +69,7 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <Link to='/employee'>
+      <Link to='/user'>
         <HomeIcon>
           <BankOutlined/>
         </HomeIcon>
