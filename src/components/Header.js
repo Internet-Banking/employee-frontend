@@ -73,7 +73,7 @@ const Header = () => {
         <HomeIcon>
           <BankOutlined/>
         </HomeIcon>
-        <Title>IBanking 29 employee Website</Title>
+        <Title>IBanking 29 Employee Website</Title>
       </Link>
       <EmployeePanel>
         {employeeInfo ? employeeInfo.name : null}
