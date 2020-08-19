@@ -4,14 +4,17 @@ import {useDispatch, useSelector} from 'react-redux'
 import {Form, Input, Button, message} from 'antd'
 import {UserOutlined, LockOutlined} from '@ant-design/icons'
 import {submitLogin} from './actions'
+import {GOOGLE_RECAPTCHA_CLIENT_KEY} from '../../../constants'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 const LoginForm = ({history}) => {
   const error = useSelector(state => state.error)
   const token = useSelector(state => state.employee.token)
+  const [recaptchaToken, setRecaptcha] = React.useState(null)
 
   const dispatch = useDispatch()
   const onFinish = values => {
-    dispatch(submitLogin(values))
+    dispatch(submitLogin(values, recaptchaToken))
   }
 
   // Effect when log in successfully
@@ -23,6 +26,10 @@ const LoginForm = ({history}) => {
   useEffect(() => {
     error && message.error(error)
   }, [error])
+
+  const onCaptchaChange = (value) => {
+    setRecaptcha(value)
+  }
 
   return (
     <Form
@@ -61,7 +68,11 @@ const LoginForm = ({history}) => {
           placeholder='Password'
         />
       </Form.Item>
-
+      <ReCAPTCHA
+        style={{marginBottom: '10px'}}
+        sitekey={GOOGLE_RECAPTCHA_CLIENT_KEY}
+        onChange={onCaptchaChange}
+      />
       <Form.Item>
         <Button type='primary' htmlType='submit' className='login-form-button'>
           Log in

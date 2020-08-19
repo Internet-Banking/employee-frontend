@@ -28,3 +28,6 @@ export const VISIBILITY_FILTERS = {
   COMPLETED: 'completed',
   INCOMPLETE: 'incomplete'
 }
+
+export const GOOGLE_RECAPTCHA_CLIENT_KEY = process.env.GOOGLE_RECAPTCHA_CLIENT_KEY ||
+  '6LdGAQEVAAAAANywRoW-yBg3ONOJXiKYm0XhuRcz'
